@@ -1,0 +1,41 @@
+spring:
+   datasource:
+     username: root
+     password: smile123
+     url: jdbc:mysql://121.36.56.8:3306/blog?characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai&useSSL=false
+     driver-class-name: com.mysql.jdbc.Driver
+     druid:
+       #2.连接池配置
+       #初始化连接池的连接数量 大小，最小，最大
+       initial-size: 5
+       min-idle: 5
+       max-active: 20
+       #配置获取连接等待超时的时间
+       max-wait: 60000
+       #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+       time-between-eviction-runs-millis: 60000
+       # 配置一个连接在池中最小生存的时间，单位是毫秒
+       min-evictable-idle-time-millis: 30000
+       validation-query: SELECT 1 FROM DUAL
+   redis:
+     host: 121.36.56.8
+server:
+  port: 10010
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+# 第三方登录
+justAuth:
+  clientId:
+    gitee: 8d3016c8c3acaedeab9a3dff16cd209806c427c47bf11bf4101249fdabc1b44f
+  clientSecret:
+    gitee: 153f0a5bfee258e8c004ff1d05dd5bef8c472b6bf2bcd34b1f32e527ada3a7a4
+data:
+  url:
+    web: http://localhost:10010/auth/callback
+    website: http://localhost:3000/login
+#    web: http://blog-api.jpwdesign.design/auth/callback
+#    website: http://www.jpwdesign.design/login
+  jwt:
+    key: smile
+    time: 30
